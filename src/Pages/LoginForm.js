@@ -37,6 +37,9 @@ class LoginForm extends React.Component {
                 hasErrors: true,
                 password: ""
             })
+        } else {
+            // Update the isLoggedIn state of parent.
+            this.props.updateAuthenticationStatus(true, username)
         }
     }
 
