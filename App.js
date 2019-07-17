@@ -1,25 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button  } from 'react-native';
-
-
-class LoginForm extends React.Component {
-  componentDidMount(){
-    this.setState(previousState => (
-      { 
-        hasErrors: false
-      }
-    ))
-  }
-  state = { hasErrors: true };
-
-
-  render() {
-    return (
-      <Text>{this.props.text}</Text>
-    );
-  }
-}
-
+import { 
+  StyleSheet,
+  Text,
+  View,
+  Button, 
+  TouchableOpacity,
+  TextInput
+} from 'react-native';
+import LoginForm from './src/Pages/LoginForm'
 
 export default class AppLayout extends React.Component {
   state = { isLoggedIn: false };
@@ -37,31 +25,16 @@ export default class AppLayout extends React.Component {
 
     return (
       <View>
-        {showLoginForm}
+        <View style={styles.container}>
+          {showLoginForm}
+        </View> 
       </View>
     );
   }
 }
-
-
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.container}>Scanner Login</Text>
-//       <Button
-//         onPress={() => console.log('Button has been pressed')}
-//         title="Login"
-//         color="#C4C4C4"
-//       />
-//     </View>
-//   );
-// }
 
 const styles = StyleSheet.create({
   container: {
     padding: '15px'
   },
 });
-
-    // alignItems: 'center',
-    // justifyContent: 'center',
