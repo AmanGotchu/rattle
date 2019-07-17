@@ -8,24 +8,28 @@ import {
   TextInput
 } from 'react-native';
 import LoginForm from './src/Pages/LoginForm'
+import ScannerHome from './src/Pages/ScannerHome'
 
 export default class AppLayout extends React.Component {
   componentDidMount() {
     this.setState({
       isLoggedIn: false,
       username: "",
+      isInitiatingScan: false
     })
   }
 
   state = { 
     isLoggedIn: false,
-    username: ""
+    username: "",
+    isInitiatingScan: false
   };
 
   updateAuthenticationStatus = (isLoggedIn, username = "") => {
     this.setState({
       isLoggedIn,
-      username
+      username,
+      isInitiatingScan: true
     })
   }
 
@@ -33,12 +37,15 @@ export default class AppLayout extends React.Component {
   render() {
     var {
       isLoggedIn,
-      username
+      username,
+      isInitiatingScan
     } = this.state; 
     let showLoginForm;
     let showLogoutOption;
+    let showInitateScanPage;
 
     if(!isLoggedIn) {
+      {this.updateAuthenticationStatus(true, 'adminUser')}
       showLoginForm = <LoginForm updateAuthenticationStatus={this.updateAuthenticationStatus}/>
     } else {
       showLogoutOption = (
@@ -50,11 +57,21 @@ export default class AppLayout extends React.Component {
       )
     }
 
+    if(isInitiatingScan) {
+      // Load the dropdown scanning home page.
+      showInitateScanPage = (
+        <View>
+          {showLogoutOption}
+          <ScannerHome />
+        </View>
+      )
+    }
+
     return (
       <View>
         <View style={styles.container}>
-          {showLogoutOption}
           {showLoginForm}
+          {showInitateScanPage}
         </View> 
       </View>
     );

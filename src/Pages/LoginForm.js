@@ -86,13 +86,13 @@ class LoginForm extends React.Component {
 
 const formStyles = StyleSheet.create({
     viewSpacer: {
-        paddingTop: '20vh;'
+        paddingTop: '20vh'
     },
     textHeader: {
         fontSize: '21px',
         letterSpacing: '.05em',
         fontWeight: 'bold',
-        paddingBottom: '30px'
+        paddingBottom: '60px'
     },
     button: {
         alignItems: 'center',
