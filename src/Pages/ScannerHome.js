@@ -5,7 +5,9 @@ import {
     View,
     TouchableOpacity,
     TextInput,
-    Picker
+    Modal,
+    Picker,
+    TouchableHighlight 
 } from 'react-native';
 
 // IMPORTANT
@@ -29,20 +31,29 @@ class ScannerHome extends React.Component {
     componentDidMount() {
         this.setState({
             event: "",
-            attribute: ""
+            attribute: "",
+            instructionsVisible: false
         })
     }
     state = {
         event: "",
-        attribute: ""
+        attribute: "",
+        instructionsVisible: false
     };
+
+    showInstructions(visible) {
+        this.setState({instructionsVisible: !this.state.instructionsVisible});
+      }
+    
 
     render() {
         var {
             event,
-            attribute
+            attribute,
+            instructionsVisible
         } = this.state
         let remainderOfForm;
+        let instructionText;
         var count = 0;
 
         if(event != "") {
@@ -62,25 +73,25 @@ class ScannerHome extends React.Component {
                         return (<Picker.Item label={attr} value={attr} key={attr}/>)
                     })} */}
                     </Picker>
-
-                    <TouchableOpacity
-                    style={styles.button}
-                    onPress={this.handleLoginSubmit}
-                    >
-                        <Text style={styles.buttonText}> New Scan </Text>
-                    </TouchableOpacity>
-
                 </View>
             )
         }
 
+        if(instructionsVisible) {
+            instructionText = (
+                <View>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita esse atque ullam suscipit explicabo et dolorem veniam sit magni vitae rerum aliquam impedit placeat repellendus recusandae facere quas rem doloremque eos possimus enim, soluta eveniet? Sint ullam tempore facilis voluptas sit. Corrupti sed est numquam doloribus reiciendis distinctio odio eveniet.
+                    </Text>
+                </View>
+            )
+        }
+        
 
         return (
             <View style={styles.viewSpacer}>
+                
                 <Text style={styles.textHeader}>Scanning Home</Text>
-                <Text style={styles.helpText}>
-                    Need Help? Click for Instructions.
-                </Text>
 
                 <Picker
                 selectedValue={event}
@@ -96,7 +107,23 @@ class ScannerHome extends React.Component {
 
                 {remainderOfForm}
 
-
+                <TouchableOpacity
+                disabled = {event == ""}
+                style={styles.button}
+                onPress={this.handleLoginSubmit}
+                >
+                    <Text style={styles.buttonText}>
+                        {(event == "") ? 'No Event Selected': 'New Scan'}
+                    </Text>
+                </TouchableOpacity>
+                <Text style={styles.helpText}
+                onPress={() => {
+                    this.showInstructions(true);
+                }}
+                >
+                    Need Help? Click for Instructions.
+                </Text>
+                {instructionText}
             </View>
         );
     }
@@ -110,26 +137,29 @@ const styles = StyleSheet.create({
         fontSize: '21px',
         letterSpacing: '.05em',
         fontWeight: 'bold',
+        paddingBottom: '60px'
     },
     button: {
         alignItems: 'center',
         backgroundColor: '#C4C4C4',
-        padding: 10
+        padding: 10,
+        marginTop: 15
     },
     buttonTwo: {
         alignItems: 'center',
         backgroundColor: '#C4C4C4',
         position: "absolute",
         bottom: 0,
-        padding: 10
+        padding: 15
     },
     helpText: {
-        paddingBottom: '60px',
+        paddingBottom: '20px',
         bottom: 0,
         fontSize: '16px',
         fontWeight: 'bold',
         color: '#17a2b8',
-        textDecorationLine: 'underline'
+        textDecorationLine: 'underline',
+        paddingTop: '10px'
     },
     selectInput: {
         borderWidth: '2px',

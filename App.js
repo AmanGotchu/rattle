@@ -45,7 +45,7 @@ export default class AppLayout extends React.Component {
     let showInitateScanPage;
 
     if(!isLoggedIn) {
-      {this.updateAuthenticationStatus(true, 'adminUser')}
+      // {this.updateAuthenticationStatus(true, 'adminUser')}
       showLoginForm = <LoginForm updateAuthenticationStatus={this.updateAuthenticationStatus}/>
     } else {
       showLogoutOption = (
