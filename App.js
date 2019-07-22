@@ -1,80 +1,86 @@
 import React from 'react';
-import { 
+import {
   StyleSheet,
-  Text,
-  View,
-  Button, 
-  TouchableOpacity,
-  TextInput
+  View
 } from 'react-native';
-import LoginForm from './src/Pages/LoginForm'
-import ScannerHome from './src/Pages/ScannerHome'
+import { Button, ListItem, Text } from 'react-native-elements';
+import LoginForm from './Pages/LoginForm'
+import ScannerHome from './Pages/ScannerHome'
+
+// Hard Coded State Variables
+const list = [
+  {
+    text: 'Scanner Login',
+    val: 'login',
+    completed: true
+  },
+  {
+    text: 'Scanner Home',
+    val: 'home',
+    completed: false
+  },
+  {
+    text: 'Actual Scanner',
+    val: 'scanner',
+    completed: false
+  },
+  {
+    text: 'Scanner Register Message',
+    val: 'registerMessage',
+    completed: false
+  },
+  {
+    text: 'Scanner Normal Message',
+    val: 'scannerMessage',
+    completed: false
+  },
+  {
+    text: 'New Scan Page',
+    val: 'newScan',
+    completed: false
+  },
+  {
+    text: 'Search Users',
+    val: 'search',
+    completed: false
+  }
+]
 
 export default class AppLayout extends React.Component {
   componentDidMount() {
     this.setState({
-      isLoggedIn: false,
-      username: "",
-      isInitiatingScan: false
+      pageView: "selector"
     })
   }
 
-  state = { 
-    isLoggedIn: false,
-    username: "",
-    isInitiatingScan: false
+  state = {
+    pageView: "selector",
   };
-
-  updateAuthenticationStatus = (isLoggedIn, username = "") => {
-    this.setState({
-      isLoggedIn,
-      username,
-      isInitiatingScan: true
-    })
-  }
-
 
   render() {
     var {
-      isLoggedIn,
-      username,
-      isInitiatingScan
-    } = this.state; 
-    let showLoginForm;
-    let showLogoutOption;
-    let showInitateScanPage;
-
-    if(!isLoggedIn) {
-      // {this.updateAuthenticationStatus(true, 'adminUser')}
-      showLoginForm = <LoginForm updateAuthenticationStatus={this.updateAuthenticationStatus}/>
-    } else {
-      showLogoutOption = (
-        <Text style={styles.logoutNavText}
-          onPress={(e) => this.updateAuthenticationStatus(false)}
-        >
-          Logged in as {username}. Press to logout 
-        </Text>
-      )
-    }
-
-    if(isInitiatingScan) {
-      // Load the dropdown scanning home page.
-      showInitateScanPage = (
-        <View>
-          {showLogoutOption}
-          <ScannerHome />
-        </View>
-      )
-    }
+      pageView,
+    } = this.state;
 
     return (
-      <View>
-        <View style={styles.container}>
-          {showLoginForm}
-          {showInitateScanPage}
-        </View> 
-      </View>
-    );
+      // <LoginForm />
+      <ScannerHome />
+    )
+    
+    // return (
+    //   <View style={styles.container}>
+    //     <Text h3> Click for page view</Text>
+    //     {
+    //       list.map((item, i) => (
+    //         <Text key={i} style={styles.TextItem} h4
+            
+    //         >
+    //           {item.text} {'(Completed - ' + item.completed + ')'}
+    //         </Text>
+    //       ))
+    //     }
+    //   </View>
+    // );
   }
 }
 
@@ -82,15 +88,8 @@ const styles = StyleSheet.create({
   container: {
     padding: '15px'
   },
-  logoutNavText: {
-    textAlign: 'center',
-    top: 0,
-    left: 0,
-    right: 0,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    width: "100vw",
-    position: "absolute",
-    padding: "10px"
+  TextItem: {
+    color: 'blue',
+    padding: 10,
   }
 });
