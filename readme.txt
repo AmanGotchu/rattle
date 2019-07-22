@@ -1,8 +1,10 @@
+7 / 22 Update -> Pages will only contain styles and hard coded values. This should allow for easier merging.
 Still a work in progress.
 
 Pages Styled
-- Login
+- Login Form
 - Scanner Home
+- Scanner View
 
 To run project
 1. Download expo
