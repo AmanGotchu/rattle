@@ -8,6 +8,7 @@ import LoginForm from './Pages/LoginForm'
 import ScannerHome from './Pages/ScannerHome'
 import ScannerView from './Pages/ScannerView'
 import ScannerRegisterMessage from './Pages/ScannerRegisterMessage'
+import ScannerSuccessMessage from './Pages/ScannerSuccessMessage'
 // Hard Coded State Variables
 const list = [
   {
@@ -31,7 +32,7 @@ const list = [
     completed: true
   },
   {
-    text: 'Scanner Normal Message',
+    text: 'Scanner Success Message',
     val: 'scannerMessage',
     completed: false
   },
@@ -67,7 +68,8 @@ export default class AppLayout extends React.Component {
       // <LoginForm />
       // <ScannerHome />
       // <ScannerView />
-      <ScannerRegisterMessage />
+      // <ScannerRegisterMessage />
+      <ScannerSuccessMessage />
     )
     
     // return (

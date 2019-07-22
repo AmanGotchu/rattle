@@ -6,12 +6,13 @@ Pages Styled
 - Scanner Home
 - Scanner View
 - Scanner Register Message
-
-Pages Left To Style
 - Scanner Normal Message
+
+What is left
 - New Scan Page
 - Search Users
 - Style Cleanup (make code look nicer)
+- Test flex (might cause problems)
 
 To run project
 1. Download expo
