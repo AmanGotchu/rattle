@@ -10,6 +10,8 @@ import ScannerView from './Pages/ScannerView'
 import ScannerRegisterMessage from './Pages/ScannerRegisterMessage'
 import ScannerSuccessMessage from './Pages/ScannerSuccessMessage'
 import NewScanPage from './Pages/NewScanPage'
+import SearchUsers from './Pages/SearchUsers'
+
 // Hard Coded State Variables
 const list = [
   {
@@ -71,7 +73,8 @@ export default class AppLayout extends React.Component {
       // <ScannerView />
       // <ScannerRegisterMessage />
       // <ScannerSuccessMessage />
-      <NewScanPage />
+      // <NewScanPage />
+      <SearchUsers />
     )
     
     // return (
