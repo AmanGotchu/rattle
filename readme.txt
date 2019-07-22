@@ -5,6 +5,13 @@ Pages Styled
 - Login Form
 - Scanner Home
 - Scanner View
+- Scanner Register Message
+
+Pages Left To Style
+- Scanner Normal Message
+- New Scan Page
+- Search Users
+- Style Cleanup (make code look nicer)
 
 To run project
 1. Download expo
