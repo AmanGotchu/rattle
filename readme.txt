@@ -7,10 +7,10 @@ Pages Styled
 - Scanner View
 - Scanner Register Message
 - Scanner Normal Message
-
-What is left
 - New Scan Page
 - Search Users
+
+What is left
 - Style Cleanup (make code look nicer)
 - Test flex (might cause problems)
 
