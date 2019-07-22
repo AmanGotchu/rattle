@@ -6,6 +6,7 @@ import {
 import { Button, ListItem, Text } from 'react-native-elements';
 import LoginForm from './Pages/LoginForm'
 import ScannerHome from './Pages/ScannerHome'
+import ScannerView from './Pages/ScannerView'
 
 // Hard Coded State Variables
 const list = [
@@ -17,12 +18,12 @@ const list = [
   {
     text: 'Scanner Home',
     val: 'home',
-    completed: false
+    completed: true
   },
   {
     text: 'Actual Scanner',
     val: 'scanner',
-    completed: false
+    completed: true
   },
   {
     text: 'Scanner Register Message',
@@ -64,7 +65,8 @@ export default class AppLayout extends React.Component {
 
     return (
       // <LoginForm />
-      <ScannerHome />
+      // <ScannerHome />
+      <ScannerView />
     )
     
     // return (

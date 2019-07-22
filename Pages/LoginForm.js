@@ -17,9 +17,6 @@ class LoginForm extends React.Component {
     state = { username: "", password: "" };
 
     render() {
-        var {
-            hasErrors
-        } = this.state;
         return (
             <View style={styles.container}>
                 <Text h3>Scanner Login</Text>
