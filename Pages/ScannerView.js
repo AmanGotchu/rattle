@@ -5,26 +5,14 @@ import {
     TextInput
 } from 'react-native';
 import { Button, ListItem, Text, Input } from 'react-native-elements';
-
+import ScannerButtonNav from './_ScannerButtonNav'
 
 class ScannerView extends React.Component {
     render() {
         return (
             <View>
                 <View style={styles.container}>
-                    <Button
-                        buttonStyle={{backgroundColor: '#C8C8C8', borderColor: '#C8C8C8'}}
-                        titleStyle={{color: 'black', fontSize:'18px'}}
-                        title="Return to Scanning Home"
-                        type="outline"
-                    />
-                    <Button
-                        style={{marginTop: '10px'}}
-                        buttonStyle={{borderColor: '#C8C8C8', borderWidth: '4px'}}
-                        titleStyle={{color: 'black', fontSize:'18px'}}
-                        title="Search Manually"
-                        type="outline"
-                    />
+                    <ScannerButtonNav />
                 </View>
                 <View style={styles.camera}>
                     <Text style={{marginTop:'50px', textAlign: 'center'}}>Insert Camera Here</Text>

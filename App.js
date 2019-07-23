@@ -18,10 +18,10 @@ export default class AppLayout extends React.Component {
     return (
       // Comment / Uncomment Pages
       <View>
-        <LoginForm />
+        {/* <LoginForm /> */}
         {/* <ScannerHome /> */}
         {/* <ScannerView /> */}
-        {/* <ScannerRegisterMessage /> */}
+        <ScannerRegisterMessage />
         {/* <ScannerSuccessMessage /> */}
         {/* <NewScanPage /> */}
         {/* <SearchUsers /> */}

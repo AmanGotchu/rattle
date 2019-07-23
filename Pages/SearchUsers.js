@@ -6,6 +6,7 @@ import {
     TextInput
 } from 'react-native';
 import { Button, ListItem, Text, Input } from 'react-native-elements';
+import NewScanButtonNav from './_NewScanButtonNav'
 
 var list = [
     {
@@ -33,22 +34,7 @@ class SearchUsers extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Button
-                    style={{marginTop: '10px'}}
-                    buttonStyle={{backgroundColor: '#C8C8C8', borderColor: '#C8C8C8'}}
-                    titleStyle={{color: 'black', fontSize:'18px'}}
-                    title="Return to Scanning Home"
-                    type="outline"
-                />
-                <Button
-                    style={{marginTop: '10px'}}
-                    buttonStyle={{borderColor: '#C8C8C8', borderWidth: '4px'}}
-                    titleStyle={{color: 'black', fontSize:'18px'}}
-                    title="Search Manually"
-                    type="outline"
-                />
-
-                <View style={{borderBottomColor: 'black', borderBottomWidth: 1, paddingTop: '30px', marginBottom: '15px'}} />
+                <NewScanButtonNav />
                 <TextInput
                     style={styles.textInput}
                     placeholder="Search User by Name"
