@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
         padding: '10px', 
         borderColor: 'black', 
         borderWidth: '1px', 
-        opacity: '.75', 
+        opacity: .75, 
         backgroundColor: 'black', 
         borderRadius: '18px'
     }
