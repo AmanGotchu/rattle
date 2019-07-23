@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
         height: 40
     },
     camera: {
-        // This would of been so easy if calc() was a thing
         position: 'fixed',
         top: '140px', 
         right: '0', 

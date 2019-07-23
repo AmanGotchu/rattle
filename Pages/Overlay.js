@@ -5,6 +5,7 @@ import {
     TextInput
 } from 'react-native';
 import { Button, ListItem, Text, Input, Badge, Icon } from 'react-native-elements';
+import EmailComponent from './_EmailComponent';
 
 
 class ScannerRegisterMessage extends React.Component {
@@ -42,14 +43,8 @@ class ScannerRegisterMessage extends React.Component {
                             title="Not Checked In"
                             type="outline"
                         />
-                        <Text style={{marginTop: '10px', borderBottomColor: '#C8C8C8', borderBottomWidth:'2px', paddingBottom: '8px', paddingTop: '8px'}}>
-                            <Text style={{fontWeight: 'bold'}}>
-                                Email
-                            </Text>
-                            <Text style={{float: 'right'}}>
-                                JohnDoeAtDoeJohn@tamu.edu
-                            </Text>
-                        </Text>
+                        
+                        <EmailComponent />
                     
                         <Button
                             style={{marginTop: '15px'}}
