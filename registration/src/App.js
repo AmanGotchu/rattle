@@ -22,12 +22,13 @@ class App extends Component {
   }
   render(){
     const previewStyle = {
-      height: 240,
-      width: 320,
+      display: 'flex',
+      height: '100%',
+      width: '100%',
     }
 
     return(
-      <div>
+      <div style={{ display: 'flex', height: '100vh', width: '100vw', backgroundColor: 'black' }}>
         <QrReader
           delay={this.state.delay}
           style={previewStyle}
