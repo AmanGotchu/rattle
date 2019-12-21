@@ -2,28 +2,26 @@ import React, { Component } from 'react';
 import { View } from 'react';
 import QrReader from 'react-qr-reader';
 import Button from 'react-bootstrap/Button';
+import { connect } from 'react-redux';
+import * as actions from '../redux/actions/authActions';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 
-// <QrReader
-//   delay={this.state.delay}
-//   style={previewStyle}
-//   onError={this.handleError}
-//   onScan={this.handleScan}
-//   />
-// <p>{this.state.result}</p>
 
-class App extends Component {
+class Login extends Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       delay: 100,
       result: 'No result',
       email: '',
-      password: ''
-    }
+      password: '',
+      submitClr: '#FF7C93'
+    };
+    //this.handleScan = this.handleScan.bind(this);
+  }
 
-    this.handleScan = this.handleScan.bind(this)
+  login() {
+    this.props.login();
   }
 
   handleScan(data){
@@ -31,6 +29,7 @@ class App extends Component {
       result: data,
     })
   }
+
   handleError(err){
     console.error(err)
   }
@@ -43,22 +42,18 @@ class App extends Component {
   passwordHandler = (event) => {
     console.log(event.target.value);
     this.setState({ password: event.target.value });
-  }
+  };
 
-  loginHandler = (event) => {
-    console.log("Submit");
-  }
-
-  render(){
+  render() {
     return(
       <div style={styles.pageContainer}>
         <form style={styles.formContainer} onSubmit={this.formHandler}>
           <div style={styles.titleContainer}>
             <img
               style={styles.logoContainer}
-              src={require("./hiss.svg")}
+              src={require("../assets/hiss.svg")}
             />
-            <p style={{ fontSize: '18px' }}>by TAMUhack</p>
+            <p style={{ fontSize: '18px' }}>by tamuhack</p>
           </div>
           <input
             type='text'
@@ -75,8 +70,8 @@ class App extends Component {
             style={styles.inputContainer}
           />
           <Button
-            onClick={this.loginHandler}
-            style={styles.submitContainer}
+            onClick={() => this.login()}
+            style={{...styles.submitContainer, backgroundColor: this.state.submitClr}}
           >
             Login
           </Button>
@@ -90,7 +85,7 @@ const styles = {
     logoContainer : {
       display: 'flex',
       marginLeft: '-10px',
-      height: '7vh'
+      height: '56px'
     },
     pageContainer : {
       display: 'flex',
@@ -99,8 +94,8 @@ const styles = {
       alignItems: 'center',
     },
     titleContainer: {
-      marginTop: '4vh',
-      marginBottom: '8vh',
+      marginTop: '27vh',
+      marginBottom: '40px',
       width: '80vw'
     },
     formContainer: {
@@ -111,24 +106,37 @@ const styles = {
       paddingLeft: '10vw',
       paddingRight: '10vw',
       height: '100vh',
-      border: '2px solid red',
     },
     inputContainer: {
-      height: '7vh',
+      height: '57px',
       width: '80vw',
       paddingLeft: '4%',
       marginBottom: '3vh',
-      fontSize: 20
+      fontSize: 17
     },
     submitContainer: {
-      height: '10vh',
+      height: '57px',
       width: '80vw',
       marginTop: '3vh',
-      border: '2px solid red',
-      backgroundColor: '#FF7C93',
       color: 'white',
       fontSize: 20
+    },
+    stripe: {
+      position: 'absolute',
+      width: '70vw',
+      bottom: -1000
     }
 };
 
-export default App;
+const mapStateToProps = state => ({
+  isLoggedIn: state.auth.isLoggedIn,
+  isLoading: state.auth.isLoading,
+  userData: state.auth.userData,
+  error: state.auth.error
+});
+
+const mapDispatchToProps = dispatch => ({
+  login: () => dispatch(actions.login())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
