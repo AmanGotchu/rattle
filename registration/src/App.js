@@ -96,17 +96,18 @@ const styles = {
       display: 'flex',
       height: '100vh',
       width: '100vw',
-      justifyContent: 'center'
+      alignItems: 'center',
     },
     titleContainer: {
-      marginTop: '23vh',
-      marginBottom: '8vh'
+      marginTop: '4vh',
+      marginBottom: '8vh',
+      width: '80vw'
     },
     formContainer: {
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
-      width: '80vw',
+      alignItems: 'center',
+      width: '100vw',
       paddingLeft: '10vw',
       paddingRight: '10vw',
       height: '100vh',
@@ -114,12 +115,15 @@ const styles = {
     },
     inputContainer: {
       height: '7vh',
+      width: '80vw',
       paddingLeft: '4%',
-      marginBottom: '7vh',
+      marginBottom: '3vh',
       fontSize: 20
     },
     submitContainer: {
       height: '10vh',
+      width: '80vw',
+      marginTop: '3vh',
       border: '2px solid red',
       backgroundColor: '#FF7C93',
       color: 'white',
